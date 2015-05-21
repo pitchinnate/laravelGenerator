@@ -3,6 +3,8 @@ This will be a library of commands that can be used to create php code files for
 default code than `php artisan make:model` will generate. I started out doing a lot of code in Yii so this is inspired by Yii's gii options.
 The commands will connect to your DB you have setup in your .env to pull information and generate more intellegent files.
 
+***THIS HAS ONLY BEEN TESTED WITH MYSQL***
+
 ##Installation
 GenerateCommand.php goes into the /app/Console/Commands directory.
 I have also included a simple BaseModel file that I use to base all of my Models off of. This would go in /app/Models, as I store

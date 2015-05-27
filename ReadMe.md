@@ -6,7 +6,7 @@ The commands will connect to your DB you have setup in your .env to pull informa
 ***THIS HAS ONLY BEEN TESTED WITH MYSQL***
 
 ##Installation
-GenerateCommand.php goes into the /app/Console/Commands directory.
+GenerateModel.php goes into the /app/Console/Commands directory.
 I have also included a simple BaseModel file that I use to base all of my Models off of. This would go in /app/Models, as I store
 all my model files in /app/Models instead of /app which is where `php artisan make:model` does.
 
@@ -17,13 +17,13 @@ class Kernel extends ConsoleKernel {
 
 	protected $commands = [
 		...
-		'App\Console\Commands\GenerateCommand',
+		'App\Console\Commands\GenerateModel',
 	];
   ...
 ```
 
 ##Config
-I have setup some defaults in the GenerateCommand.php file. You can edit these lines to get your desired results:
+I have setup some defaults in the GenerateModel.php file. You can edit these lines to get your desired results:
 
 ```
 $model_dir = __DIR__ . '/../../Models/';

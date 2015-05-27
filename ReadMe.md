@@ -49,23 +49,36 @@ Example result:
 namespace App\Models;
 
 use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
+ * @property integer $group_id
  * @property string $email
  * @property string $password
  * @property string $status
  * @property string $created_at
  * @property string $updated_at
+ * @property string $deleted_at
  */
 
 class User extends BaseModel {
 
+    use SoftDeletes;
+
     protected $table = 'user';
     protected $fillable = ['email','password','status'];
-    protected $validations = ['email' => '',
-                            'password' => '',
-                            'status' => ''];
+    protected $validations = ['group_id' => 'exists:group,id|integer|min:0',
+                            'email' => 'max:255|string|required',
+                            'password' => 'max:255|string|required',
+                            'status' => 'max:255|string|required'];
+                            
+    public function Group() {
+        return $this->belongsTo('App\Models\Group');
+    }
+    public function UserLogin() {
+        return $this->hasMany('App\Models\UserLogin');
+    }
 
 }
 ```

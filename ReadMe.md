@@ -69,3 +69,9 @@ class User extends BaseModel {
 
 }
 ```
+
+###Update 1.0
+- Renamed GenerateCommand to GenerateModel to prepare for a GenerateController and other features
+- Added auto-detect of soft deletes and builds it into the model
+- Added auto-detect of Forgein keys and automatically creates functions for hasMany and belongsTo
+- Added some automatically generated validations based off of the column type, size, etc...
